@@ -22,22 +22,32 @@ classes=species
 #                      -----------(1-1)하이퍼 파러미터과 GPU 사용 세팅---------------
 #                      -----------(1-1)Hyperparameter(save path=path) and Gpu setting---------------
 #                      (At first, You Must Gpu setting in Your Computer, Search "Gpu setting in Pytorch")
-
-#                     -Model Hyper parameter(Batch,lr)-
-
 device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-batch_size = 30
+
+ #                     -Model Hyper parameter(Batch,lr,epoch,log_interval,Save path)-
+batch_size=30
 lr=0.2
+epoch=50
+log_interval=600
+
+Path = "D://modelsGS//Saving origin_try004_5 soft.tar"
+# Save path:path, Load path:root
 
 #--------------
 
 #####--------root=Data path
 
-##root='D:\\GSorigin\\M_N1'
-root='D:\\GSorigin\\HSV_train1'
-#root='D:\\GSorigin\\HSV_train'
+#root='D:\\GSorigin\\Just_resized1'
+#root='D:\\GSorigin\\Just_resized2'
+#root='D:\\GSorigin\\Just_resized3'
+#root='D:\\GSorigin\\Just_resized4'
+#root='D:\\GSorigin\\Just_resized_M'
 
-#root='D:\\GSorigin\\Same1_resize186'
+#root='D:\\GSorigin\\Just_HSV1'
+#root='D:\\GSorigin\\Just_HSV2'
+#root='D:\\GSorigin\\Just_HSV3'
+#root='D:\\GSorigin\\Just_HSV4'
+root='D:\\GSorigin\\Just_HSV_M'
 
 
 tf1=tr.Compose([tr.ToTensor()])
@@ -72,7 +82,7 @@ class Net(nn.Module):
                                       ,nn.ReLU())
 
         #                -FC 층 정의-
-        self.FC1=torch.nn.Sequential(nn.Linear(128 * 11 * 8, 128 * 2)
+        self.FC1=torch.nn.Sequential(nn.Linear(128 *20 * 25, 128 * 2)
                                       ,nn.ReLU())
 
         self.FC2=nn.Linear(128 *2 ,22)
