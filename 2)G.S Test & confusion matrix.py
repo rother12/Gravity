@@ -22,7 +22,6 @@ classes=species
 #                      -----------(1-1)하이퍼 파러미터과 GPU 사용 세팅---------------
 #                      -----------(1-1)Hyperparameter(save path=path) and Gpu setting---------------
 #                      (At first, You Must Gpu setting in Your Computer, Search "Gpu setting in Pytorch")
-device=torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
  #                     -Model Hyper parameter(Batch,lr,epoch,log_interval,Save path)-
 batch_size=30
@@ -33,9 +32,8 @@ log_interval=600
 Path = "D://modelsGS//Saving origin_try004_5 soft.tar"
 # Save path:path, Load path:root
 
-#--------------
-
-#####--------root=Data path
+#                     ----(2-1)Data load와 분할 작업 (root설정,split)-----
+#                     ----(2-1)Data load define & split to train,test,validation set (root=Load Data path, split)-----
 
 #root='D:\\GSorigin\\Just_resized1'
 #root='D:\\GSorigin\\Just_resized2'
@@ -49,7 +47,7 @@ Path = "D://modelsGS//Saving origin_try004_5 soft.tar"
 #root='D:\\GSorigin\\Just_HSV4'
 root='D:\\GSorigin\\Just_HSV_M'
 
-
+#               -data load(dataset을 Gray Scale로 ImageFolder를 이용하여 불러온다.)-
 tf1=tr.Compose([tr.ToTensor()])
 
 
@@ -82,7 +80,7 @@ class Net(nn.Module):
                                       ,nn.ReLU())
 
         #                -FC 층 정의-
-        self.FC1=torch.nn.Sequential(nn.Linear(128 *20 * 25, 128 * 2)
+        self.FC1=torch.nn.Sequential(nn.Linear(128 * 20 * 25, 128 * 2)
                                       ,nn.ReLU())
 
         self.FC2=nn.Linear(128 *2 ,22)
