@@ -17,10 +17,10 @@ Gravity SPY Classification Reproducing Using Pytorch
 #reference GravitySpy(Zevin,2017) ,Deep Multi view Models For Glitch Class~
 
 #Comment
-i made this code When i worked in Korea National institute as Research Assistante in 8 Months 
+i made this code When i worked in Korea Government-funded research institute as Research Assistante in 8 Months 
 without Background Knowledge about Python and Gravity Spy
 So as reason This code it will be awkward but it work properly my computer(Windows,Titan V GPU,Python 3.7.8)
-get good result you can change more efficiently.
+you can change more efficiently.
 
 If you have any Question Pls contact my e-mail Address (rother12@hanmail.net)
 
