@@ -48,7 +48,7 @@ Path = "D://modelsGS//Saving origin_try004_5 soft.tar"
 root='D:\\GSorigin\\Just_HSV_M'
 
 #               -data load(dataset을 Gray Scale로 ImageFolder를 이용하여 불러온다.)-
-tf1=tr.Compose([tr.ToTensor()])
+tf1=tr.Compose([tr.Grayscale(),tr.ToTensor()])
 
 
 #                     ----(2-1)Data load와 분할 작업 (root설정,split)-----
